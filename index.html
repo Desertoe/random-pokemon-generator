@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Random Pokémon Generator - Random Pokemon Team Generator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>Random Pokémon <span class="accent">Generator</span></h1>
+    <p class="subtitle">Create random Pokémon teams — customize regions, types, legendaries, forms and more.</p>
+
+    <section class="controls">
+      <div class="control-group">
+        <label class="control">
+          <span>Quantity (1–6)</span>
+          <input type="number" id="quantity" min="1" max="6" value="6">
+        </label>
+
+        <!-- Multi-select Region -->
+        <label class="control">
+          <span>Regions</span>
+          <div class="multi-dropdown" id="regionDropdown">
+            <button class="dropdown-btn">All Regions ▼</button>
+            <div class="dropdown-content">
+              <label><input type="checkbox" value="all" checked> All Regions</label>
+              <label><input type="checkbox" value="kanto"> Kanto</label>
+              <label><input type="checkbox" value="johto"> Johto</label>
+              <label><input type="checkbox" value="hoenn"> Hoenn</label>
+              <label><input type="checkbox" value="sinnoh"> Sinnoh</label>
+              <label><input type="checkbox" value="unova"> Unova</label>
+              <label><input type="checkbox" value="kalos"> Kalos</label>
+              <label><input type="checkbox" value="alola"> Alola</label>
+              <label><input type="checkbox" value="galar"> Galar</label>
+              <label><input type="checkbox" value="hisui"> Hisui</label>
+              <label><input type="checkbox" value="paldea"> Paldea</label>
+            </div>
+          </div>
+        </label>
+
+        <!-- Multi-select Type -->
+        <label class="control">
+          <span>Types</span>
+          <div class="multi-dropdown" id="typeDropdown">
+            <button class="dropdown-btn">All Types ▼</button>
+            <div class="dropdown-content">
+              <label><input type="checkbox" value="all" checked> All Types</label>
+              <label><input type="checkbox" value="fire"> Fire</label>
+              <label><input type="checkbox" value="water"> Water</label>
+              <label><input type="checkbox" value="grass"> Grass</label>
+              <label><input type="checkbox" value="electric"> Electric</label>
+              <label><input type="checkbox" value="psychic"> Psychic</label>
+              <label><input type="checkbox" value="dark"> Dark</label>
+              <label><input type="checkbox" value="fairy"> Fairy</label>
+              <label><input type="checkbox" value="fighting"> Fighting</label>
+              <label><input type="checkbox" value="ground"> Ground</label>
+              <label><input type="checkbox" value="flying"> Flying</label>
+              <label><input type="checkbox" value="poison"> Poison</label>
+              <label><input type="checkbox" value="ice"> Ice</label>
+              <label><input type="checkbox" value="steel"> Steel</label>
+              <label><input type="checkbox" value="ghost"> Ghost</label>
+              <label><input type="checkbox" value="bug"> Bug</label>
+              <label><input type="checkbox" value="rock"> Rock</label>
+              <label><input type="checkbox" value="dragon"> Dragon</label>
+              <label><input type="checkbox" value="normal"> Normal</label>
+            </div>
+          </div>
+        </label>
+
+        <!-- Multi-select Stages -->
+        <label class="control">
+          <span>Stages</span>
+          <div class="multi-dropdown" id="stageDropdown">
+            <button class="dropdown-btn">All Stages ▼</button>
+            <div class="dropdown-content">
+              <label><input type="checkbox" value="any" checked> Any</label>
+              <label><input type="checkbox" value="unevolved"> Unevolved</label>
+              <label><input type="checkbox" value="evolvedOnce"> Evolved once</label>
+              <label><input type="checkbox" value="evolvedTwice"> Evolved twice</label>
+            </div>
+          </div>
+        </label>
+      </div>
+
+      <fieldset class="checkbox-group">
+        <legend>Legendary categories</legend>
+        <label><input type="checkbox" id="subLegendary" checked> Sub-Legendary</label>
+        <label><input type="checkbox" id="legendary" checked> Legendary</label>
+        <label><input type="checkbox" id="mythical" checked> Mythical</label>
+        <label><input type="checkbox" id="paradox" checked> Paradox</label>
+        <label><input type="checkbox" id="ultraBeast" checked> Ultra Beast</label>
+      </fieldset>
+
+      <fieldset class="checkbox-group">
+        <legend>Additional options</legend>
+        <label><input type="checkbox" id="showNatures"> Include natures</label>
+        <label><input type="checkbox" id="showGenders"> Include genders</label>
+        <label><input type="checkbox" id="altForms"> Include alternate forms</label>
+        <label><input type="checkbox" id="showStats"> Generate EVs, IVs and items</label>
+
+        <!-- NEW: separate checkboxes for moves & ability -->
+        <label><input type="checkbox" id="genMoves"> Generate moves</label>
+        <label><input type="checkbox" id="genAbility"> Generate ability</label>
+
+        <!-- EV/IV mode selector -->
+        <label style="display:flex;align-items:center;gap:8px;margin-top:6px;">
+          <span style="font-size:14px;">EV/IV Mode</span>
+          <select id="evivMode" style="margin-left:8px;padding:6px;border-radius:6px;background:rgba(255,255,255,0.03);color:#e4e7eb;">
+            <option value="competitive">Competitive</option>
+            <option value="random">Random</option>
+          </select>
+        </label>
+      </fieldset>
+
+      <div class="buttons">
+        <button id="generateBtn" class="btn primary">Generate</button>
+        <button id="exportBtn" class="btn">Export Showdown</button>
+      </div>
+
+      <div id="status" class="status">Ready</div>
+    </section>
+
+    <section id="results" class="results" aria-live="polite"></section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
