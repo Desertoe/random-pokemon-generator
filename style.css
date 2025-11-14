@@ -1,0 +1,192 @@
+:root {
+  --bg: #0b0c10;
+  --card: #16181d;
+  --text: #e4e7eb;
+  --accent: #6b46c1;
+  --glass: rgba(255, 255, 255, 0.05);
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2rem;
+  margin: 0;
+}
+
+.accent { color: var(--accent); }
+
+.subtitle {
+  text-align: center;
+  opacity: 0.85;
+  margin-top: 6px;
+}
+
+.controls {
+  margin-top: 1.5rem;
+  background: var(--card);
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+}
+
+.control-group {
+  display: grid;
+  gap: 0.9rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.control {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+input[type="number"] {
+  background: var(--glass);
+  border: 1px solid #333;
+  color: var(--text);
+  padding: 0.5rem;
+  border-radius: 8px;
+}
+
+/* === Multi-select dropdowns === */
+.multi-dropdown {
+  position: relative;
+}
+.dropdown-btn {
+  width: 100%;
+  padding: 0.5rem;
+  background: var(--glass);
+  border: 1px solid #333;
+  color: var(--text);
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: left;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: var(--card);
+  border: 1px solid #333;
+  border-radius: 8px;
+  width: 100%;
+  max-height: 240px;
+  overflow-y: auto;
+  z-index: 10;
+  margin-top: 4px;
+  padding: 0.5rem;
+}
+
+.dropdown-content label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 0;
+  font-size: 14px;
+  cursor: pointer;
+  color: #ffffff; /* Mejor contraste */
+}
+
+.dropdown-content input[type="checkbox"] {
+  accent-color: var(--accent);
+}
+
+.multi-dropdown.open .dropdown-content {
+  display: block;
+}
+
+/* Checkbox groups */
+.checkbox-group {
+  margin-top: 0.8rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 1rem;
+}
+
+.buttons {
+  margin-top: 0.8rem;
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.btn {
+  border: none;
+  border-radius: 10px;
+  padding: 0.6rem 1rem;
+  background: var(--glass);
+  color: var(--text);
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn.primary {
+  background: linear-gradient(90deg, var(--accent), #4cc7f3);
+  color: #fff;
+}
+
+.status {
+  margin-top: 0.6rem;
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+/* RESULTS */
+.results {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+/* Nueva fila centrada */
+.pkm-row {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+.pokemon-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius: 12px;
+  text-align: center;
+  padding: 0.8rem;
+  transition: transform 0.16s ease;
+  border: 1px solid rgba(255,255,255,0.03);
+  width: 160px;
+}
+
+.pokemon-card:hover { transform: translateY(-6px); }
+
+.pokemon-card img {
+  width: 96px;
+  height: 96px;
+  image-rendering: pixelated;
+}
+
+.pokemon-name { margin: 6px 0 4px 0; font-weight: 700; }
+
+.pokemon-meta {
+  font-size: 12px;
+  color: #bfc9d6;
+  margin-top: 6px;
+}
+
+@media (max-width:600px){
+  .control-group{grid-template-columns:1fr}
+  .pokemon-card img{width:80px;height:80px}
+}
