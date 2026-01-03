@@ -113,7 +113,7 @@ function pickMoves(arr, max=4){
 
 // competitive EV presets (common spreads)
 const COMP_EV_PRESETS = [
-  {label:'252 Atk / 4 SpD / 252 Spe', arr:[0,252,0,0,4,252]}, // actually order mismatch -> we'll transform properly below
+  {label:'252 Atk / 4 SpD / 252 Spe', arr:[0,252,0,0,4,252]},
   {label:'252 HP / 252 Def / 4 SpD', arr:[252,0,252,0,4,0]},
   {label:'252 SpA / 4 SpD / 252 Spe', arr:[0,0,0,252,4,252]},
   {label:'252 Atk / 252 Spe / 4 HP', arr:[4,252,0,0,0,252]},
@@ -134,7 +134,6 @@ function formatStatLine(values, prefix){
 
 // generate competitive EVs: pick one preset and map to HP/Atk/Def/SpA/SpD/Spe
 function generateCompetitiveEVs(){
-  // We'll pick reasonable presets mapped correctly
   // Use a set of explicit arrays in correct order [HP,Atk,Def,SpA,SpD,Spe]
   const presets = [
     [0,252,4,0,0,252],   // 252 Atk / 4 Def? Wait - choose common ones:
